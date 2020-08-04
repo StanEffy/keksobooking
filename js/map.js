@@ -387,35 +387,24 @@ let mainPinDown = mapPinMain.addEventListener('mousedown', function(evt){
 			evt.preventDefault();
 			this.parentNode.classList.add('hidden');
 		}))
-	
-	
-	let mapPinsArrayPseudo = document.querySelectorAll('.map__pin');
+
+	let mapPinsArrayPseudo = document.querySelectorAll('.map__pin:not(.map__pin--main)');
 	
 	mapPinsArrayPseudo.forEach(function(elem, i, arr){
 		elem.addEventListener('click', function(evt){
 			evt.preventDefault();
-			/*this is fully functioning and unbelievably stupid way to avoid user pin*/
-			if(i == 0){
-
-			} else {
-				if(popup[i-1].classList.contains('hidden')){
-				popup[i-1].classList.remove('hidden');
+				if(popup[i].classList.contains('hidden')){
+					popup[i].classList.remove('hidden');
 					} else {
-					popup[i-1].classList.add('hidden');
-				}
-			}
-			
+					popup[i].classList.add('hidden');
+					}
 		})
 	});
 
 
 	
   };
-
  window.backend.load(createOffers, window.errorHandler);
-
-
-
 })();
 
 
