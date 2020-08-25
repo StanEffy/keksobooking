@@ -4,8 +4,10 @@
     let createdPins = [];
     let createdArticle = [];
     let avatarImg = document.querySelector('.ad-form-header__preview img')
+
     let imgPin;
     let imgPin2;
+
     avatar.addEventListener('change', function (evt) {
         let file = avatar.files[0];
 
@@ -138,6 +140,12 @@
 
         let pins = document.querySelector('.map__pins');
         createdPins.push(newPin);
+
+        newPin.dataset.type = type.value;
+        newPin.dataset.price = price.value;
+        newPin.dataset.rooms = roomNumber.value;
+        newPin.dataset.guests = capacity.value;
+
         pins.appendChild(newPin);
 
         createdArticle.push(newArticle);
